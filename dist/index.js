@@ -14,6 +14,9 @@ switch (typeof taxValue) {
         let value = taxValue;
         console.log(`Nieoczekiwany typ dla wartości: ${value}`);
 }
+let newResult = calculateTax(200, false);
+let myNumber = newResult;
+console.log(`Wartość liczbowa: ${myNumber.toFixed(2)}`);
 //       to samo co wyzej tylko sprawdza typ wartosci w case
 // if(typeof taxValue === "number"){
 //     console.log(`Wartośc typu number: ${taxValue.toFixed(2)}`);
