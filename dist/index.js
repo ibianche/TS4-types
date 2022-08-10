@@ -1,35 +1,9 @@
-function calculateTax(amount, format) {
-    if (amount === 0) {
-        return null;
-    }
-    const calcAmount = amount * 1.2;
-    return format ? `${calcAmount.toFixed(2)} zł` : calcAmount;
+function calculateTax(amount, discount) {
+    return (amount * 1.2) - (discount || 0); // || 0 uzywa sie jezeli parametr nie bedzie zdefiniowany
 }
-let taxValue;
-eval("taxValue = calculateTax(100, false)");
-if (taxValue !== null) {
-    let nonNullTaxValue = taxValue;
-    switch (typeof taxValue) {
-        case "number":
-            console.log(`Wartośc typu number: ${taxValue.toFixed(2)}`);
-            break;
-        case "string":
-            console.log(`Wartośc typu string: ${taxValue.charAt(7)}${taxValue.charAt(8)}`);
-            break;
-    }
-}
-else {
-    console.log("To nie jest wartosc typu string lub number");
-}
-// default:
-//     if(taxValue === null){
-//         console.log(`Wartość to null`);
-//     } else {
-//         console.log(typeof taxValue);
-//         let value: never = taxValue;
-//         console.log(`Nieoczekiwany typ dla wartości: ${value}`);
-//     }
-// }
-// let newResult: unknown = calculateTax(200, false);
-// let myNumber: number = newResult as number;
-// console.log(`Wartość liczbowa: ${myNumber.toFixed(2)}`);
+let taxValue = calculateTax(100, 0);
+console.log(`Dwa argumenty: ${taxValue}`);
+taxValue = calculateTax(100);
+console.log(`Jeden argument: ${taxValue}`);
+// taxValue = calculateTax(100, 10, 20);
+// console.log(`Trzy argumenty: ${taxValue}`);
