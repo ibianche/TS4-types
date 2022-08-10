@@ -1,15 +1,12 @@
 
 
 
-function calculateTax(amount: number, discount: number = 0, ...extraFees: number[]) {
+function calculateTax(amount: number, discount: number = 0, ...extraFees: number[]) : number {
     return (amount * 1.2) - discount
-    + extraFees.reduce((total, val) => total + val, 0);
+            + extraFees.reduce((total, val) => total + val, 0);
+    }
+
+function writeValue(label: string, value: number) : void {
+    console.log(`${label}: ${value}`);
 }
-let taxValue = calculateTax(100, 0);
-console.log(`Dwa argumenty: ${taxValue}`);
-taxValue = calculateTax(100);
-console.log(`Jeden argument: ${taxValue}`);
-taxValue = calculateTax(100, 10, 20);
-console.log(`Trzy argumenty: ${taxValue}`);
-taxValue = calculateTax(100,10, 20, 1, 30, 7);
-console.log(`Sześć argumentów: ${taxValue}`);
+writeValue("Wartość wraz z podatkiem", calculateTax(100, 0));

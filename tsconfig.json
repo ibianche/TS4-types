@@ -3,9 +3,9 @@
     "target": "es2020",
     "outDir": "./dist",
     "rootDir": "./src",
-    "declaration": true
-//    "noImplicitAny": true,
-//    "strictNullChecks": true
+    "declaration": true,
+    "strictNullChecks": true,
+    "noImplicitReturns": true
   }
 }
 
