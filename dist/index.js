@@ -1,5 +1,5 @@
-function calculateTax(amount, discount) {
-    return (amount * 1.2) - (discount || 0); // || 0 uzywa sie jezeli parametr nie bedzie zdefiniowany
+function calculateTax(amount, discount = 0) {
+    return (amount * 1.2) - discount;
 }
 let taxValue = calculateTax(100, 0);
 console.log(`Dwa argumenty: ${taxValue}`);
