@@ -3,11 +3,22 @@ function calculateTax(amount: number, format: boolean): string | number {
     return format ? `${calcAmount.toFixed(2)} zł` : calcAmount;
 }
 
-let taxNumber = calculateTax(100, false) as number;
-let taxString = calculateTax(100, true) as string;
-let taxBoolean = calculateTax(100, false) as any as boolean;
+let taxValue = calculateTax(100, false);
 
-
-console.log(`Wartość typu number: ${taxNumber.toFixed(2)}`);
-console.log(`Wartość typu string: ${taxString.charAt(7)}${taxString.charAt(8)}`);
-console.log(`Wartość typu boolean: ${taxBoolean}`);
+switch (typeof taxValue) {
+    case "number":
+        console.log(`Wartośc typu number: ${taxValue.toFixed(2)}`);
+        break;
+    case "string":
+        console.log(`Wartośc typu string: ${taxValue.charAt(7)}${taxValue.charAt(8)}`);
+        break;
+    default:
+        let value: never = taxValue;
+        console.log(`Nieoczekiwany typ dla wartości: ${value}`);
+}
+//       to samo co wyzej tylko sprawdza typ wartosci w case
+// if(typeof taxValue === "number"){
+//     console.log(`Wartośc typu number: ${taxValue.toFixed(2)}`);
+// } else if(typeof taxValue === "string"){
+//     console.log(`Wartośc typu string: ${taxValue.charAt(7)}${taxValue.charAt(8)}`);
+// }
